@@ -8,7 +8,7 @@ module.exports = {
     },
 
     show(req,res){
-        Post.findById(res.params.id)
+        Post.findById(req.params.id)
         .then(post=>res.status(200).json(post))
         .catch(error=>res.status(500).json(error))
     },

@@ -8,7 +8,7 @@ module.exports = {
     },
 
     show(req,res){
-        User.findById(res.params.id)
+        User.findOne(req.params.id)
         .then(user=>res.status(200).json(user))
         .catch(error=>res.status(500).json(error))
     },

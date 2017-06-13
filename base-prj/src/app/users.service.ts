@@ -12,17 +12,12 @@ export class UsersService {
   getAll(): Observable<User[]> {
     return this.http
       .get(`${credentials.host}/api/users`, { headers: credentials.getHeaders() })
-      .map((res)=>res.json())
+      .map(res=>res.json())
       .catch(error => {
         console.log('Error', error);
         return Observable.throw(error);
       });
   }
-}
-
-function mapPersons(res:Response):User[]{
-  console.log(res.json().results);
-  return res.json().results.map(toUser);
 }
 
 function toUser(res: any): User {

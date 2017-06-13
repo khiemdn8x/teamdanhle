@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
   title = 'home';
 
   ngOnInit(): void {
-    this.usersService.getAll().subscribe(users => this.users= users);
+    // this.usersService.getAll().subscribe(users => this.users = users);
   }
 }
