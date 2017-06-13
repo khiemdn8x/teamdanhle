@@ -1,3 +1,4 @@
-<div>
-  {{message}}
+<div *ngFor='let user of users'>
+  <span>{{user.username}}</span>
+  <span>{{user.password}}</span>
 </div>
