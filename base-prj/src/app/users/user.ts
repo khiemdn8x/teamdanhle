@@ -1,6 +1,8 @@
-export class User{
-    id:string;
-    username:string;
-    password:string;
-    status:boolean
+export interface User{
+    id: number;
+    username: string;
+    password: string;
+    status: number;
+    createdAt: Date;
+    updatedAt: Date;
 }
