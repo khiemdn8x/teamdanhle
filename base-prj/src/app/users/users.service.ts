@@ -21,10 +21,17 @@ export class UsersService {
   get(id: number): Observable<User> {
         let user = this.http
         .get(`${credentials.host}/api/users/${id}`, {headers: credentials.getHeaders()})
-        .map(mapUser)
+        .map(res => res.json())
         .catch(handleError);
         return user;
     }
+
+  delete(id: number): Observable<User> {
+        return this.http
+        .delete(`${credentials.host}/api/users/${id}`, {headers: credentials.getHeaders()})
+        .map(res => res.json())
+        .catch(handleError);
+  }
 
   save(user: User) : Observable<Response>{
       return this

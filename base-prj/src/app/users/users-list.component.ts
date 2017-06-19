@@ -15,12 +15,26 @@ export class UserListComponent implements OnInit {
     }
 
     ngOnInit(){
-       this.usersService
+       this.getAllUsers();
+    }
+
+    getAllUsers(){
+      this.usersService
       .getUsers()
       .subscribe(
          /* happy path */ u => this.user = u,
          /* error path */ e => this.errorMessage = e,
          /* onCompleted */ () => this.isLoading = false);
+    }
+
+    deleteUser(id){
+      this.usersService.delete(id).subscribe(
+        ok => {console.log(ok)}, 
+        () => this.isLoading = false);
+    }
+
+    editUser(id) {
+      alert('Đã chon id '+id+' nhưng hưa làm xong, hê hê!');
     }
 
 }
