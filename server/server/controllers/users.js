@@ -46,4 +46,15 @@ module.exports = {
         .then(user=>res.status(200).json(user))
         .catch(error=>{res.status(500).json(error)})
     },
+
+    deleteAndGetAll(req,res){
+        User.destroy({
+            where:{
+                id:req.params.id,
+            }
+        })
+        .then(r=>User.findAll())
+        .then(users=>res.status(200).json(users))
+        .catch(error=>res.status(500).json(error));
+    }
 }

@@ -33,6 +33,13 @@ export class UsersService {
         .catch(handleError);
   }
 
+  deleteAndGetAll(id:number):Observable<User[]>{
+        return this.http
+        .delete(`${credentials.host}/api/users/${id}/getAll`,{headers:credentials.getHeaders()})
+        .map(res=>res.json())
+        .catch(handleError);
+  }
+
   save(user: User) : Observable<Response>{
       return this
       .http

@@ -28,9 +28,9 @@ export class UserListComponent implements OnInit {
     }
 
     deleteUser(id){
-      this.usersService.delete(id).subscribe(
-        ok => {console.log(ok)}, 
-        () => this.isLoading = false);
+      this.usersService.deleteAndGetAll(id).subscribe(
+        user => this.user = user,
+        error => this.errorMessage = error);
     }
 
     editUser(id) {
