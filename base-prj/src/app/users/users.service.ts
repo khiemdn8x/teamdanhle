@@ -40,31 +40,6 @@ export class UsersService {
               JSON.stringify(user), 
               {headers: credentials.getHeaders()});
   }
-
-}
-
-function mapUsers(response:Response): User[]{
-   return response.json()[0].results.map(toUser);
-}
-
-function mapUser(response:Response): User{
-   return toUser(response.json());
-}
-
-function toUser(r: any): User{
-    let user = <User>({
-    id: extractId(r),
-    url: r.url,
-    username: r.username,
-    password: r.password,
-    status: r.status
-  });
-  return user;
-}
-
-function extractId(userData: any){
-    let extractId = userData.url.replace('http://localhost:3000/api/users/','').replace('/','');
-    return parseInt(extractId);
 }
 
 function toMessage(r:any):Message{
