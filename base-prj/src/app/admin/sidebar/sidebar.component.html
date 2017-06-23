@@ -1,0 +1,31 @@
+<div class="navbar-default sidebar" role="navigation">
+  <div class="sidebar-nav navbar-collapse">
+    <ul class="nav in" id="side-menu">
+      <li class="sidebar-search">
+        <div class="input-group custom-search-form">
+          <input type="text" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+            <button class="btn btn-default">
+              <fa [name]="'search'"></fa>
+            </button>
+          </span>
+        </div>
+      </li>
+      <li routerLink="dashboard" routerLinkActive="active">
+        <a>
+          <fa [name]="'dashboard'" [fw]=true></fa>Dashboard
+        </a>
+      </li>
+      <li>
+        <a>
+          <fa [name]="'user'" [fw]=true></fa>User
+        </a>
+      </li>
+      <li>
+        <a>
+          <fa [name]="'file'" [fw]=true></fa>Post
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

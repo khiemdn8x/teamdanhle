@@ -1,25 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import {routing} from './routers/routers';
 import { AppComponent } from './app.component';
-import { UserListComponent } from 'app/users/users-list.component';
-import {DashboardComponent } from 'app/dashboard/dashboard.component';
-// import { PostsComponent } from 'app/posts/posts.component';
+import { UserModule } from './user/user.module';
+import { AdminModule } from './admin/admin.module';
+import { RouterModule } from '@angular/router';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
-    DashboardComponent
-    // PostsComponent
   ],
   imports: [
     BrowserModule,
-    routing,
     FormsModule,
-    HttpModule
+    HttpModule,
+    UserModule,
+    AdminModule,
+    RouterModule.forRoot([{
+      path: '', component: AppComponent
+    }]),
+    Angular2FontawesomeModule
   ],
   bootstrap: [AppComponent]
 })

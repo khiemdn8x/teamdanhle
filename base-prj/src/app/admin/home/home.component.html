@@ -1,0 +1,33 @@
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-static-top" style="margin-bottom:0">
+    <div class="navbar-header">
+      <a routerLink="/admin" class="navbar-brand">Control Panel</a>
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle">
+          <fa [name]="'envelope'" [fw]=true></fa>
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-toggle">
+          <fa [name]="'tasks'" [fw]=true></fa>
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-toggle">
+          <fa [name]="'bell'" [fw]=true></fa>
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-toggle">
+          <fa [name]="'user'" [fw]=true></fa>
+        </a>
+      </li>
+    </ul>
+    <app-sidebar></app-sidebar>
+  </nav>
+  <div id="page-wrapper" style="min-height:640px;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
