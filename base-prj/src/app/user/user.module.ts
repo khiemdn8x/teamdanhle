@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {UserRoutingModule,routedComponents} from './user.routing';
+import { UserRoutingModule, routedComponents } from './user.routing';
 
 @NgModule({
   imports: [UserRoutingModule],

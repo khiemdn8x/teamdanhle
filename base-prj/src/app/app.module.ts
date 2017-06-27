@@ -5,9 +5,22 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
+import { HomeComponent } from './admin/home/home.component';
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { UserManagerComponent } from './admin/user-manager/user-manager.component';
+
+const routes:Routes=[
+  {
+    path:'',component:AppComponent,
+  },
+  {
+    path:'admin',loadChildren:'./admin/admin.module#AdminModule'
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +31,10 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     HttpModule,
     UserModule,
     AdminModule,
-    RouterModule.forRoot([{
-      path: '', component: AppComponent
-    }]),
+    RouterModule.forRoot(routes),
     Angular2FontawesomeModule
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
