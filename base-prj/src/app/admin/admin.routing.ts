@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserManagerComponent } from './user-manager/user-manager.component';
+import { UserManagerModule } from './user-manager/user-manager.module';
 
 const routes: Routes = [
     {
-        path: '', component: HomeComponent,children:[
+        path: '', component: AdminHomeComponent
+        ,children:[
             {
                 path:'',redirectTo:'./dashboard',pathMatch:'full'
             },
@@ -15,7 +16,7 @@ const routes: Routes = [
                 path:'dashboard',component:DashboardComponent
             },
             {
-                path:'usermanager',component:UserManagerComponent
+                path:'usermanager',loadChildren:'./user-manager/user-manager.module#UserManagerModule'
             }
         ]
     }
@@ -26,5 +27,5 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class AdminRoutingModule { }
-
-export const declaredComponents = [HomeComponent,SidebarComponent,DashboardComponent,UserManagerComponent];
+AdminHomeComponent
+export const declaredComponents = [AdminHomeComponent,SidebarComponent,DashboardComponent];

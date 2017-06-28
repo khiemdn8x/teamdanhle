@@ -8,11 +8,6 @@ import { AdminModule } from './admin/admin.module';
 import { RouterModule,Routes } from '@angular/router';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
-import { HomeComponent } from './admin/home/home.component';
-import { SidebarComponent } from './admin/sidebar/sidebar.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { UserManagerComponent } from './admin/user-manager/user-manager.component';
-
 const routes:Routes=[
   {
     path:'',component:AppComponent,
@@ -21,6 +16,7 @@ const routes:Routes=[
     path:'admin',loadChildren:'./admin/admin.module#AdminModule'
   }
 ]
+
 @NgModule({
   declarations: [
     AppComponent,
