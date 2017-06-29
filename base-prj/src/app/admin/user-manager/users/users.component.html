@@ -38,14 +38,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="gradeA odd" role="row">
-                  <td>1</td>
-                  <td>Giang</td>
-                  <td>*****</td>
-                  <td>true</td>
-                  <td>Action</td>
-                  <td>Action2</td>
-                  <td>Action3</td>
+                <tr *ngFor="let user of users;let index=index;let odd=odd;let even=even" class="gradeA" [ngClass]="{odd:odd,even:even}" role="row">
+                  <td>{{user.id}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.password}}</td>
+                  <td>{{user.status}}</td>
+                  <td>action</td>
                 </tr>
               </tbody>
             </table>

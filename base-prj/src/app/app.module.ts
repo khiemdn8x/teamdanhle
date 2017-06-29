@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { RouterModule,Routes } from '@angular/router';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import {UsersService} from './service/users.service';
 
 const routes:Routes=[
   {
@@ -30,7 +31,7 @@ const routes:Routes=[
     RouterModule.forRoot(routes),
     Angular2FontawesomeModule
   ],
-  providers:[],
+  providers:[UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
