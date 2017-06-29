@@ -30,7 +30,7 @@ const routes:Routes=[
     RouterModule.forRoot(routes),
     Angular2FontawesomeModule
   ],
-
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
