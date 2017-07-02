@@ -6,13 +6,15 @@ import 'rxjs/add/observable/throw';
 import { credentials } from '../credentials';
 import { Observable } from 'rxjs/Rx';
 import { User } from '../bean/user';
+import { Page } from '../bean/page';
+
 @Injectable()
 export class UsersService {
   constructor(private http: Http) { }
 
-  getUsers(): Observable<User[]> {
+  getUsers(offset,limit): Observable<any> {
     return this.http
-      .get(`${credentials.host}/api/users`, { headers: credentials.getHeaders() })
+      .get(`${credentials.host}/api/users/${offset}/${limit}`, { headers: credentials.getHeaders() })
       .map(res => res.json())
       .catch(handleError);
   }

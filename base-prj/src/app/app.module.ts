@@ -26,8 +26,6 @@ const routes:Routes=[
     BrowserModule,
     FormsModule,
     HttpModule,
-    UserModule,
-    AdminModule,
     RouterModule.forRoot(routes),
     Angular2FontawesomeModule
   ],

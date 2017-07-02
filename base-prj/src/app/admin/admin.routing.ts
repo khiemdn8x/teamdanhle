@@ -10,7 +10,7 @@ const routes: Routes = [
         path: '', component: AdminHomeComponent
         ,children:[
             {
-                path:'',redirectTo:'./dashboard',pathMatch:'full'
+                path:'',component:DashboardComponent,pathMatch:'full'
             },
             {
                 path:'dashboard',component:DashboardComponent
@@ -27,5 +27,5 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class AdminRoutingModule { }
-AdminHomeComponent
+
 export const declaredComponents = [AdminHomeComponent,SidebarComponent,DashboardComponent];

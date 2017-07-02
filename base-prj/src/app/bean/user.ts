@@ -2,5 +2,7 @@ export interface User{
     id: number;
     username: string;
     password: string;
-    status: number;
+    status: boolean;
+    createdAt:any;
+    updatedAt:any;
 }

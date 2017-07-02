@@ -3,7 +3,7 @@ const users = require('../server/controllers').users;
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', users.getAll);
+router.get('/:offset/:limit', users.getAndCountAll);
 router.get("/:id",users.show);
 router.post("/",users.create);
 router.put("/:id",users.update);
