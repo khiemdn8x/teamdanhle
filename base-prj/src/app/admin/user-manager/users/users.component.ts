@@ -27,8 +27,6 @@ export class UsersComponent implements OnInit {
   }
 
   changePage(page: number) {
-    console.log(page);
-    console.log(this.pagination.totalPages);
     if (page < 1 || page > this.pagination.totalPages) {
       return;
     }
