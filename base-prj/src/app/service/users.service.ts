@@ -6,7 +6,7 @@ import 'rxjs/add/observable/throw';
 import { credentials } from '../credentials';
 import { Observable } from 'rxjs/Rx';
 import { User } from '../bean/user';
-import { Page } from '../bean/page';
+import { Pagination } from '../bean/pagination';
 
 @Injectable()
 export class UsersService {
@@ -50,24 +50,24 @@ export class UsersService {
 
 }
 
-function mapUsers(response: Response): User[] {
-  return response.json()[0].results.map(toUser);
-}
+// function mapUsers(response: Response): User[] {
+//   return response.json()[0].results.map(toUser);
+// }
 
-function mapUser(response: Response): User {
-  return toUser(response.json());
-}
+// function mapUser(response: Response): User {
+//   return toUser(response.json());
+// }
 
-function toUser(r: any): User {
-  let user = <User>({
-    id: extractId(r),
-    url: r.url,
-    username: r.username,
-    password: r.password,
-    status: r.status
-  });
-  return user;
-}
+// function toUser(r: any): User {
+//   let user = <User>({
+//     id: extractId(r),
+//     url: r.url,
+//     username: r.username,
+//     password: r.password,
+//     status: r.status
+//   });
+//   return user;
+// }
 
 function extractId(userData: any) {
   let extractId = userData.url.replace('http://localhost:3000/api/users/', '').replace('/', '');

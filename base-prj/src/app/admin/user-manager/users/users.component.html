@@ -38,7 +38,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let user of users;let index=index;let isOdd=odd;let isEven=even" class="gradeA" [class.odd]="isOdd" [class.even]="isEven" role="row">
+                <tr *ngFor="let user of users;let index=index;let isOdd=odd;let isEven=even" class="gradeA" [class.odd]="isOdd" [class.even]="isEven"
+                  role="row">
                   <td>{{user.id}}</td>
                   <td>{{user.username}}</td>
                   <td>{{user.password}}</td>
@@ -47,6 +48,32 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="dataTables-info" id="dataTables-example_info">Information</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate" *ngIf="pagination.displayPages && pagination.displayPages.length">
+              <ul class="pagination">
+                <li class="paginate_button first" [ngClass]="{disabled:pagination.currentPage === 1}">
+                  <a (click)="changePage(1)">First</a>
+                </li>
+                <li class="paginate_button previous" [ngClass]="{disabled:pagination.currentPage === 1}">
+                  <a (click)="changePage(pagination.currentPage - 1 )">Previous</a>
+                </li>
+                <li class="paginate_button previous" *ngFor="let page of pagination.displayPages" [ngClass]="{active:pagination.currentPage === page}">
+                  <a (click)="changePage(pagination.currentPage - 1 )">{{page}}</a>
+                </li>
+                <li class="paginate_button next" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+                  <a (click)="changePage(pagination.currentPage + 1 )">Next</a>
+                </li>
+                <li class="paginate_button last" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+                  <a (click)="changePage(pagination.currentPage + 1 )">Last</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
