@@ -34,7 +34,6 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers(this.limit * (this.currentPage - 1), this.limit).subscribe(res => {
         this.users = res.rows as User[];
         this.pagination = new Pagination(res.count, this.currentPage, this.limit);
-        console.log(this.pagination);
       });
   }
 }
