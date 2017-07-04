@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   private pagination: Pagination;
   private limit: number;
   private currentPage: number;
-  private limits:number[] = _.range(10,100,10);
+  private limits:number[] = _.range(10,110,10);
 
   constructor(
     private userService: UsersService,
