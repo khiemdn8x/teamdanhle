@@ -3,6 +3,7 @@ import { User } from '../../../bean/user';
 import { Pagination } from '../../../bean/pagination';
 import { UsersService } from '../../../service/users.service';
 import 'rxjs/add/operator/toPromise';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-users',
@@ -14,6 +15,7 @@ export class UsersComponent implements OnInit {
   private pagination: Pagination;
   private limit: number;
   private currentPage: number;
+  private limits:number[] = _.range(10,100,10);
 
   constructor(
     private userService: UsersService,

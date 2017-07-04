@@ -7,11 +7,8 @@
           <div class="col-sm-6">
             <div class="dataTables_length" id="dataTables-example_length">
               <label>Show
-                <select name="dataTables-example_length" class="form-control input-sm">
-                  <option value="10">10</option>
-                  <option value="25">25</option>
-                  <option value="50">50</option>
-                  <option value="100">100</option>
+                <select [(ngModel)]="limit" (change)="changePage(currentPage)" class="form-control input-sm">
+                  <option *ngFor="let limitValue of limits" [ngValue]="limitValue">{{limitValue}}</option>
                 </select>
                 entries
               </label>
@@ -64,13 +61,13 @@
                   <a (click)="changePage(pagination.currentPage - 1 )">Previous</a>
                 </li>
                 <li class="paginate_button previous" *ngFor="let page of pagination.displayPages" [ngClass]="{active:pagination.currentPage === page}">
-                  <a (click)="changePage(pagination.currentPage - 1 )">{{page}}</a>
+                  <a (click)="changePage(page)">{{page}}</a>
                 </li>
                 <li class="paginate_button next" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
                   <a (click)="changePage(pagination.currentPage + 1 )">Next</a>
                 </li>
                 <li class="paginate_button last" [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
-                  <a (click)="changePage(pagination.currentPage + 1 )">Last</a>
+                  <a (click)="changePage(pagination.totalPages )">Last</a>
                 </li>
               </ul>
             </div>
